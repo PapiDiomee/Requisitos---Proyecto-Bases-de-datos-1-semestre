@@ -1,6 +1,7 @@
 package requisito1;
 
 public class person {
+
     String name;
     String document_id;
     String gender;
@@ -18,6 +19,7 @@ public class person {
         String phone,
         boolean active
     ) {
+
         this.name = nombre;
         this.document_id = cedula;
         this.gender = gender;
@@ -35,7 +37,9 @@ public class person {
         return active;
     }
 
+    @Override
     public String toString() {
+
         return "Nombre: " + name +
                ", Cedula: " + document_id +
                ", Genero: " + gender +

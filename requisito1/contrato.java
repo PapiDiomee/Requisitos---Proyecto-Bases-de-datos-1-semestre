@@ -1,24 +1,34 @@
 package requisito1;
+
 public class contrato {
 
-    private String idContrato;
-    private String cedulaPersona;
+    public int id;
+    public String personaCedula;
+    public String tipo;
+    public double salario;
+    public String fechaInicio;
 
-    public contrato(String idContrato, String cedulaPersona) {
-        this.idContrato = idContrato;
-        this.cedulaPersona = cedulaPersona;
+    public contrato(
+        int id,
+        String personaCedula,
+        String tipo,
+        double salario,
+        String fechaInicio
+    ) {
+
+        this.id = id;
+        this.personaCedula = personaCedula;
+        this.tipo = tipo;
+        this.salario = salario;
+        this.fechaInicio = fechaInicio;
     }
 
-    public String getIdContrato() {
-        return idContrato;
-    }
+    public void mostrarInfo() {
 
-    public String getCedulaPersona() {
-        return cedulaPersona;
-    }
-
-    
-    public String toString() {
-        return "ID: " + idContrato + ", Cedula: " + cedulaPersona;
+        System.out.println("ID Contrato: " + id);
+        System.out.println("Cedula Persona: " + personaCedula);
+        System.out.println("Tipo: " + tipo);
+        System.out.println("Salario: " + salario);
+        System.out.println("Fecha Inicio: " + fechaInicio);
     }
 }

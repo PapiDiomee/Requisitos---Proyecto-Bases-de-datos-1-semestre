@@ -14,91 +14,114 @@ public class main {
         int opcion;
 
         do {
+
             System.out.println("\n¿Que deseas hacer?");
-            System.out.println("1) operaciones de las personas");
-            System.out.println("2) operaciones de los contratos");
-            System.out.println("0) salir");
+            System.out.println("1) Operaciones de las personas");
+            System.out.println("2) Operaciones de los contratos");
+            System.out.println("0) Salir");
+
             opcion = sc.nextInt();
             sc.nextLine();
 
             switch (opcion) {
-                case 1 -> menuPersonas();
-                case 2 -> menucontratos();
+
+                case 1:
+                    menuPersonas();
+                    break;
+
+                case 2:
+                    menuContratos();
+                    break;
             }
 
         } while (opcion != 0);
-    }
 
-    private static void menucontratos() {
-        System.out.println("Módulo de contratos aún no implementado.");
+        System.out.println("Programa finalizado.");
     }
 
     public static void menuPersonas() {
+
         int op;
 
         do {
-            System.out.println("\n1) crear persona");
-            System.out.println("2) buscar persona por cedula");
-            System.out.println("3) mostrar a todas las personas registradas");
-            System.out.println("4) mostrar a todas las personas activas");
-            System.out.println("5) mostrar a todas las personas inactivas");
-            System.out.println("0) volver");
+
+            System.out.println("\n--- MODULO PERSONAS ---");
+            System.out.println("1) Crear persona");
+            System.out.println("2) Buscar persona por cedula");
+            System.out.println("3) Mostrar todas las personas");
+            System.out.println("4) Mostrar personas activas");
+            System.out.println("5) Mostrar personas inactivas");
+            System.out.println("0) Volver");
 
             op = sc.nextInt();
             sc.nextLine();
 
             switch (op) {
+
                 case 1:
                     crearPersona();
                     break;
+
                 case 2:
                     buscarPersona();
                     break;
+
                 case 3:
                     mostrarTodas();
                     break;
+
                 case 4:
-                    mostrarActivas(); 
+                    mostrarActivas();
                     break;
+
                 case 5:
-                    mostrarInactivas(); 
+                    mostrarInactivas();
                     break;
             }
 
         } while (op != 0);
     }
 
-    private static void mostrarActivas() {
-        boolean hay = false;
+    public static void menuContratos() {
 
-        for (person p : personas) {
-            if (p.isActive()) {
-                System.out.println(p);
-                hay = true;
+        int op;
+
+        do {
+
+            System.out.println("\nMODULO CONTRATOS");
+            System.out.println("1) Crear contrato");
+            System.out.println("2) Buscar contrato por ID");
+            System.out.println("3) Mostrar todos los contratos");
+            System.out.println("4) Mostrar contratos por cedula");
+            System.out.println("0) Volver");
+
+            op = sc.nextInt();
+            sc.nextLine();
+
+            switch (op) {
+
+                case 1:
+                    crearContrato();
+                    break;
+
+                case 2:
+                    buscarContrato();
+                    break;
+
+                case 3:
+                    mostrarContratos();
+                    break;
+
+                case 4:
+                    mostrarContratosPorCedula();
+                    break;
             }
-        }
 
-        if (!hay) {
-            System.out.println("No hay personas activas.");
-        }
-    }
-
-    private static void mostrarInactivas() {
-        boolean hay = false;
-
-        for (person p : personas) {
-            if (!p.isActive()) {
-                System.out.println(p);
-                hay = true;
-            }
-        }
-
-        if (!hay) {
-            System.out.println("No hay personas inactivas.");
-        }
+        } while (op != 0);
     }
 
     public static void crearPersona() {
+
         System.out.print("Nombre: ");
         String nombre = sc.nextLine();
 
@@ -119,21 +142,37 @@ public class main {
 
         System.out.print("Activo (true/false): ");
         boolean activo = sc.nextBoolean();
+        sc.nextLine();
 
-        personas.add(new person(nombre, cedula, genero, estado, rh, telefono, activo));
+        personas.add(
+            new person(
+                nombre,
+                cedula,
+                genero,
+                estado,
+                rh,
+                telefono,
+                activo
+            )
+        );
+
         System.out.println("Persona creada.");
     }
 
     public static person buscarPorCedula(String cedula) {
+
         for (person p : personas) {
+
             if (p.getDocument_id().equals(cedula)) {
                 return p;
             }
         }
+
         return null;
     }
 
     public static void buscarPersona() {
+
         System.out.print("Cedula: ");
         String cedula = sc.nextLine();
 
@@ -147,8 +186,143 @@ public class main {
     }
 
     public static void mostrarTodas() {
+
+        if (personas.isEmpty()) {
+            System.out.println("No hay personas registradas.");
+            return;
+        }
+
         for (person p : personas) {
             System.out.println(p);
+        }
+    }
+
+    public static void mostrarActivas() {
+
+        boolean hay = false;
+
+        for (person p : personas) {
+
+            if (p.isActive()) {
+                System.out.println(p);
+                hay = true;
+            }
+        }
+
+        if (!hay) {
+            System.out.println("No hay personas activas.");
+        }
+    }
+
+    public static void mostrarInactivas() {
+
+        boolean hay = false;
+
+        for (person p : personas) {
+
+            if (!p.isActive()) {
+                System.out.println(p);
+                hay = true;
+            }
+        }
+
+        if (!hay) {
+            System.out.println("No hay personas inactivas.");
+        }
+    }
+
+    public static void crearContrato() {
+
+        System.out.print("ID del contrato: ");
+        int id = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Cedula de la persona: ");
+        String cedula = sc.nextLine();
+
+        person p = buscarPorCedula(cedula);
+
+        if (p == null) {
+
+            System.out.println("La persona no existe.");
+            return;
+        }
+
+        System.out.print("Tipo de contrato: ");
+        String tipo = sc.nextLine();
+
+        System.out.print("Salario: ");
+        double salario = sc.nextDouble();
+        sc.nextLine();
+
+        System.out.print("Fecha inicio: ");
+        String fecha = sc.nextLine();
+
+        contratos.add(
+            new contrato(
+                id,
+                cedula,
+                tipo,
+                salario,
+                fecha
+            )
+        );
+
+        System.out.println("Contrato creado correctamente.");
+    }
+
+    public static void buscarContrato() {
+
+        System.out.print("Ingrese ID del contrato: ");
+        int id = sc.nextInt();
+        sc.nextLine();
+
+        for (contrato c : contratos) {
+
+            if (c.id == id) {
+
+                c.mostrarInfo();
+                return;
+            }
+        }
+
+        System.out.println("Contrato no encontrado.");
+    }
+
+    public static void mostrarContratos() {
+
+        if (contratos.isEmpty()) {
+
+            System.out.println("No hay contratos registrados.");
+            return;
+        }
+
+        for (contrato c : contratos) {
+
+            c.mostrarInfo();
+            System.out.println("---------------------");
+        }
+    }
+
+    public static void mostrarContratosPorCedula() {
+
+        System.out.print("Ingrese cedula: ");
+        String cedula = sc.nextLine();
+
+        boolean encontrado = false;
+
+        for (contrato c : contratos) {
+
+            if (c.personaCedula.equals(cedula)) {
+
+                c.mostrarInfo();
+                System.out.println("---------------------");
+                encontrado = true;
+            }
+        }
+
+        if (!encontrado) {
+            System.out.println("No existen contratos para esa persona.");
         }
     }
 }
