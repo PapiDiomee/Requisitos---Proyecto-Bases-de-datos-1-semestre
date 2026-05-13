@@ -23,7 +23,7 @@ public class main {
             opcion = sc.nextInt();
             sc.nextLine();
 
-            switch (opcion) {
+            switch(opcion) {
 
                 case 1:
                     menuPersonas();
@@ -45,13 +45,13 @@ public class main {
 
         do {
 
-            System.out.println("\n--- MODULO PERSONAS ---");
+            System.out.println("\n-----MODULO PERSONAS-----");
             System.out.println("1) Crear persona");
             System.out.println("2) Buscar persona por cedula");
             System.out.println("3) Mostrar todas las personas");
             System.out.println("4) Mostrar personas activas");
             System.out.println("5) Mostrar personas inactivas");
-            System.out.println("0) Volver");
+            System.out.println("0) Volver al menú principal.");
 
             op = sc.nextInt();
             sc.nextLine();
@@ -88,12 +88,12 @@ public class main {
 
         do {
 
-            System.out.println("\nMODULO CONTRATOS");
+            System.out.println("\n-----MODULO CONTRATOS-----");
             System.out.println("1) Crear contrato");
             System.out.println("2) Buscar contrato por ID");
             System.out.println("3) Mostrar todos los contratos");
             System.out.println("4) Mostrar contratos por cedula");
-            System.out.println("0) Volver");
+            System.out.println("0) Volver al menú principal.");
 
             op = sc.nextInt();
             sc.nextLine();
@@ -156,7 +156,7 @@ public class main {
             )
         );
 
-        System.out.println("Persona creada.");
+        System.out.println("\nPersona creada.");
     }
 
     public static person buscarPorCedula(String cedula) {
@@ -181,14 +181,14 @@ public class main {
         if (p != null) {
             System.out.println(p);
         } else {
-            System.out.println("Persona no encontrada.");
+            System.out.println("\nPersona no encontrada.");
         }
     }
 
     public static void mostrarTodas() {
 
         if (personas.isEmpty()) {
-            System.out.println("No hay personas registradas.");
+            System.out.println("\nNo hay personas registradas.");
             return;
         }
 
@@ -210,7 +210,7 @@ public class main {
         }
 
         if (!hay) {
-            System.out.println("No hay personas activas.");
+            System.out.println("\nNo hay personas activas.");
         }
     }
 
@@ -227,7 +227,7 @@ public class main {
         }
 
         if (!hay) {
-            System.out.println("No hay personas inactivas.");
+            System.out.println("\nNo hay personas inactivas.");
         }
     }
 
@@ -244,7 +244,7 @@ public class main {
 
         if (p == null) {
 
-            System.out.println("La persona no existe.");
+            System.out.println("\nLa persona no existe. Debes crear una persona.");
             return;
         }
 
@@ -293,7 +293,7 @@ public class main {
 
         if (contratos.isEmpty()) {
 
-            System.out.println("No hay contratos registrados.");
+            System.out.println("\nNo hay contratos registrados.");
             return;
         }
 
@@ -322,7 +322,7 @@ public class main {
         }
 
         if (!encontrado) {
-            System.out.println("No existen contratos para esa persona.");
+            System.out.println("\nNo existen contratos para esa persona.");
         }
     }
 }

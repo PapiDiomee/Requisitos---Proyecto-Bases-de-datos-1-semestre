@@ -1,6 +1,6 @@
 package requisito1;
 
-public class person {
+public class person{
 
     String name;
     String document_id;
@@ -47,5 +47,6 @@ public class person {
                ", RH: " + rh +
                ", Telefono: " + phone +
                ", Activo: " + active;
+               
     }
 }
