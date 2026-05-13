@@ -1,4 +1,4 @@
-package requisito;
+package requisito1;
 
 public class person {
     String name;

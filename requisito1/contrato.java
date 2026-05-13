@@ -1,4 +1,4 @@
-package requisito;
+package requisito1;
 public class contrato {
 
     private String idContrato;
