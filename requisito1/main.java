@@ -12,7 +12,7 @@ public class main {
     public static void main(String[] args) {
 
         int opcion;
-
+        
         do {
 
             System.out.println("\n¿Que deseas hacer?");
@@ -21,8 +21,6 @@ public class main {
             System.out.println("0) Salir");
 
             opcion = sc.nextInt();
-            sc.nextLine();
-
             switch(opcion) {
 
                 case 1:
@@ -40,6 +38,7 @@ public class main {
     }
 
     public static void menuPersonas() {
+        
 
         int op;
 
