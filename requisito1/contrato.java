@@ -25,10 +25,11 @@ public class contrato {
 
     public void mostrarInfo() {
 
-        System.out.println("ID Contrato: " + id);
+        System.out.println("\nID Contrato: " + id);
         System.out.println("Cedula Persona: " + personaCedula);
         System.out.println("Tipo: " + tipo);
         System.out.println("Salario: " + salario);
         System.out.println("Fecha Inicio: " + fechaInicio);
+        
     }
 }

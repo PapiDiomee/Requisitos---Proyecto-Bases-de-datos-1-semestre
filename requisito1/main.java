@@ -9,10 +9,11 @@ public class main {
     static ArrayList<contrato> contratos = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) { 
+
 
         int opcion;
-        
+
         do {
 
             System.out.println("\n¿Que deseas hacer?");
@@ -21,6 +22,7 @@ public class main {
             System.out.println("0) Salir");
 
             opcion = sc.nextInt();
+
             switch(opcion) {
 
                 case 1:
@@ -38,7 +40,6 @@ public class main {
     }
 
     public static void menuPersonas() {
-        
 
         int op;
 
@@ -48,8 +49,6 @@ public class main {
             System.out.println("1) Crear persona");
             System.out.println("2) Buscar persona por cedula");
             System.out.println("3) Mostrar todas las personas");
-            System.out.println("4) Mostrar personas activas");
-            System.out.println("5) Mostrar personas inactivas");
             System.out.println("0) Volver al menú principal.");
 
             op = sc.nextInt();
@@ -67,14 +66,6 @@ public class main {
 
                 case 3:
                     mostrarTodas();
-                    break;
-
-                case 4:
-                    mostrarActivas();
-                    break;
-
-                case 5:
-                    mostrarInactivas();
                     break;
             }
 
@@ -139,10 +130,6 @@ public class main {
         System.out.print("Telefono: ");
         String telefono = sc.nextLine();
 
-        System.out.print("Activo (true/false): ");
-        boolean activo = sc.nextBoolean();
-        sc.nextLine();
-
         personas.add(
             new person(
                 nombre,
@@ -150,8 +137,7 @@ public class main {
                 genero,
                 estado,
                 rh,
-                telefono,
-                activo
+                telefono
             )
         );
 
@@ -193,40 +179,6 @@ public class main {
 
         for (person p : personas) {
             System.out.println(p);
-        }
-    }
-
-    public static void mostrarActivas() {
-
-        boolean hay = false;
-
-        for (person p : personas) {
-
-            if (p.isActive()) {
-                System.out.println(p);
-                hay = true;
-            }
-        }
-
-        if (!hay) {
-            System.out.println("\nNo hay personas activas.");
-        }
-    }
-
-    public static void mostrarInactivas() {
-
-        boolean hay = false;
-
-        for (person p : personas) {
-
-            if (!p.isActive()) {
-                System.out.println(p);
-                hay = true;
-            }
-        }
-
-        if (!hay) {
-            System.out.println("\nNo hay personas inactivas.");
         }
     }
 
@@ -299,7 +251,7 @@ public class main {
         for (contrato c : contratos) {
 
             c.mostrarInfo();
-            System.out.println("---------------------");
+        
         }
     }
 

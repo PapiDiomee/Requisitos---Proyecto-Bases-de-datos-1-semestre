@@ -1,6 +1,6 @@
 package requisito1;
 
-public class person{
+public class person {
 
     String name;
     String document_id;
@@ -8,7 +8,6 @@ public class person{
     String state;
     String rh;
     String phone;
-    boolean active;
 
     public person(
         String nombre,
@@ -16,8 +15,7 @@ public class person{
         String gender,
         String state,
         String rh,
-        String phone,
-        boolean active
+        String phone
     ) {
 
         this.name = nombre;
@@ -26,15 +24,10 @@ public class person{
         this.state = state;
         this.rh = rh;
         this.phone = phone;
-        this.active = active;
     }
 
     public String getDocument_id() {
         return document_id;
-    }
-
-    public boolean isActive() {
-        return active;
     }
 
     @Override
@@ -45,8 +38,6 @@ public class person{
                ", Genero: " + gender +
                ", Estado: " + state +
                ", RH: " + rh +
-               ", Telefono: " + phone +
-               ", Activo: " + active;
-               
+               ", Telefono: " + phone;
     }
 }
