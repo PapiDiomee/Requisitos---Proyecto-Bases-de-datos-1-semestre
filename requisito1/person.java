@@ -12,18 +12,18 @@ public class person {
     public person(
         String nombre,
         String cedula,
-        String gender,
-        String state,
+        String genero,
+        String estado,
         String rh,
-        String phone
+        String telefono
     ) {
 
         this.name = nombre;
         this.document_id = cedula;
-        this.gender = gender;
-        this.state = state;
+        this.gender = genero;
+        this.state = estado;
         this.rh = rh;
-        this.phone = phone;
+        this.phone = telefono;
     }
 
     public String getDocument_id() {

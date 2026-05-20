@@ -20,9 +20,9 @@ public class main {
             System.out.println("1) Operaciones de las personas");
             System.out.println("2) Operaciones de los contratos");
             System.out.println("0) Salir");
-
+            
             opcion = sc.nextInt();
-
+        
             switch(opcion) {
 
                 case 1:
